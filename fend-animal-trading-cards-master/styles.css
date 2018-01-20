@@ -1,0 +1,46 @@
+.animal-name
+{
+  padding: 5px;
+}
+
+.animal-description
+{
+  padding: 5px;
+}
+
+.bullet-names
+{
+  font-weight: bold;
+}
+
+#div-style
+{
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         3px 3px 5px 6px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  padding: 5px;
+}
+
+.facts
+{
+  font-style: italic;
+}
+
+.information
+{
+  border: 4px dashed;
+  border-color: grey;
+  padding: 5px;
+}
+
+.puppy-style
+{
+  width: 300px;
+  height: 200px;
+  padding: 5px;
+}
+
+.unordered-style
+{
+  list-style: none;
+}

@@ -27,6 +27,7 @@ $(document).ready(function () {
       }
     }
 
+	// Convert string values to integers.
     height = +values.height;
     width = +values.width;
 
