@@ -23,21 +23,26 @@ $(document).ready(function () {
   function makeGrid(event) {
     event.preventDefault();
     let row;
+    let k = 0;
     table = document.getElementById('pixel_canvas');
 
-    $.each($('#sizePicker').serializeArray(), function(i, field) {
+    $.each($('#sizePicker').serializeArray(), function(iter, field) {
       values[field.name] = field.value;
     });
-
-    if (table != null && table.rows.length > 0) {
-      for (var k = 0; k < table.rows.length; k++) {
-        table.deleteRow(k);
-      }
-    }
 
     // Convert string values to integers.
     height = +values.height;
     width = +values.width;
+
+    // Clears the table upon submission if there is rows present.
+    if (table != null && table.rows.length > 0) {
+      let length = table.rows.length;
+
+      while (length > 0) {
+        table.deleteRow(length - 1);
+        length--;
+      }
+    }
 
     if (table != null) {
       for (var i = 0; i < height; i++) {
