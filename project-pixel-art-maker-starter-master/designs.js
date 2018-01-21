@@ -1,12 +1,20 @@
 $(document).ready(function () {
   const colorInput = $('input[type=color]');
   const sizeInput = $('input[type=submit]');
+  const sizePicker = $('#sizePicker');
   let height, width;
   let values = {};
   let table;
 
-  // When size is submitted by the user, call makeGrid()
-  $('#sizePicker').on('submit', makeGrid);
+  /*
+  * @description Adds a click event listener to the cell which changes its background color.
+  * @param {object} cell - The table cell.
+  */
+  function addClickListener(cell) {
+    $(cell).on('click', function() {
+      $(cell).css('background-color', colorInput.val());
+    });
+  }
 
   /*
   * @description Makes the table grid. Clears the table on each submission.
@@ -21,17 +29,17 @@ $(document).ready(function () {
       values[field.name] = field.value;
     });
 
-    if (table !== null && table.rows.length > 0) {
-      for (var row = 0; row < table.rows.length; i++) {
-        table.deleteRow(row);
+    if (table != null && table.rows.length > 0) {
+      for (var k = 0; k < table.rows.length; k++) {
+        table.deleteRow(k);
       }
     }
 
-	// Convert string values to integers.
+    // Convert string values to integers.
     height = +values.height;
     width = +values.width;
 
-    if (table !== null) {
+    if (table != null) {
       for (var i = 0; i < height; i++) {
         row = table.insertRow(i);
         for (var j = 0; j < width; j++) {
@@ -41,13 +49,6 @@ $(document).ready(function () {
     }
   }
 
-  /*
-  * @description Adds a click event listener to the cell which changes its background color.
-  * @param {object} cell - The table cell.
-  */
-  function addClickListener(cell) {
-    $(cell).on('click', function() {
-      $(cell).css('background-color', colorInput.val());
-    });
-  }
+  // When size is submitted by the user, call makeGrid()
+  sizePicker.on('submit', makeGrid);
 });
